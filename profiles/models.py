@@ -9,16 +9,15 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.TextField(max_length=100, blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default-avatar_e6z9oo'
+        upload_to='images/', default='../default_profile_irrizg_dcehz0', blank=True
+
     )
 
+    class Meta:
+        ordering = ['-created_at']
 
-class Meta:
-    ordering = ['-created_at']
-
-
-def __str__(self):
-    return f"{str(self.owner)} profile"
+    def __str__(self):
+        return f"{self.owner} profile"
 
 
 def create_profile(sender, instance, created, **kwargs):
