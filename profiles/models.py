@@ -18,7 +18,7 @@ class Meta:
 
 
 def __str__(self):
-    return f"{self.owner} profile"
+    return f"{str(self.owner)} profile"
 
 
 def create_profile(sender, instance, created, **kwargs):
