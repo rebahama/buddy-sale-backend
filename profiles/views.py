@@ -7,3 +7,8 @@ from . serializer import ProfileSeralizer
 class ProfileList(generics.ListAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSeralizer
+
+
+class ProfileDetailer(generics.RetrieveUpdateAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSeralizer

@@ -9,7 +9,8 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.TextField(max_length=100, blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default_profile_irrizg_dcehz0', blank=True
+        upload_to='images/',
+        default='../default_profile_irrizg_dcehz0', blank=True
 
     )
 
