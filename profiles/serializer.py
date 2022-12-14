@@ -9,6 +9,7 @@ class ProfileSeralizer(serializers.ModelSerializer):
         model = Profile
         fields = '__all__'
 
+
 def get_is_owner(self, obj):
         """ How to check for profile ownership"""
         request = self.context['request']

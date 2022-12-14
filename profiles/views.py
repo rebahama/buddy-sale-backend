@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from . models import Profile
 from . serializer import ProfileSeralizer
+from buddysale_drf.permissions import IsOwnerOrReadOnly
 
 
 class ProfileList(generics.ListAPIView):
@@ -12,3 +13,4 @@ class ProfileList(generics.ListAPIView):
 class ProfileDetailer(generics.RetrieveUpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSeralizer
+    permission_classes = [IsOwnerOrReadOnly]
