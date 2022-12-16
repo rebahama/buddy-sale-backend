@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from category.models import Category
+from .citymodels import City
 
 
 class Post(models.Model):
@@ -8,6 +9,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200, blank=False)
     content = models.CharField(max_length=2000, blank=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=False, null=False, default=2)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, blank=False,)
     image = models.ImageField(upload_to='images/',
                               default='../default_profile_irrizg_dcehz0',
                               blank=True)
