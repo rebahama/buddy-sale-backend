@@ -22,7 +22,7 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     filterset_fields = [
-        'category'
+        'category',
         'city'
     ]
 
