@@ -15,7 +15,7 @@ class Post(models.Model):
         default=0,
         validators=[MinValueValidator(0), MaxValueValidator(1000000)])
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=False, null=False, default=2)
-    city = models.ForeignKey(City, on_delete=models.CASCADE, blank=False,)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, blank=False, related_name="city_name")
     image = models.ImageField(upload_to='images/',
                               default='../default_profile_irrizg_dcehz0',
                               blank=True)

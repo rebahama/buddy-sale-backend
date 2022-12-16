@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
 from .models import Post
 from .serializer import PostSerializer
@@ -9,9 +10,20 @@ class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter,
+                       DjangoFilterBackend]
     ordering_fields = [
         'price'
+    ]
+    search_fields = [
+        'title',
+        'content',
+        'category__title'
+    ]
+
+    filterset_fields = [
+        'category'
+        'city'
     ]
 
     def perform_create(self, serializer):
@@ -22,5 +34,3 @@ class PostDetalier(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
-
-    
