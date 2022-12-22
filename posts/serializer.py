@@ -24,7 +24,6 @@ class PostSerializer(serializers.ModelSerializer):
             return favorite.id if favorite else None
         return None
 
-
     class Meta:
         model = Post
         fields = '__all__'

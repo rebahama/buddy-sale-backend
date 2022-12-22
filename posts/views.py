@@ -18,7 +18,8 @@ class PostList(generics.ListCreateAPIView):
     search_fields = [
         'title',
         'content',
-        'category__title'
+        'category__title',
+        'city__city'
     ]
 
     filterset_fields = [
