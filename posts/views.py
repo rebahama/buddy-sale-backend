@@ -9,6 +9,7 @@ from buddysale_drf.permissions import IsOwnerOrReadOnly
 class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    
 
     filter_backends = [filters.OrderingFilter, filters.SearchFilter,
                        DjangoFilterBackend]
@@ -35,4 +36,4 @@ class PostList(generics.ListCreateAPIView):
 class PostDetalier(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    

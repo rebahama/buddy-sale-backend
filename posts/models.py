@@ -27,3 +27,10 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.owner} {self.title}'
+
+
+class MultipleImage(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to='images/',
+                              default='../default_profile_irrizg_dcehz0',
+                              blank=True)
