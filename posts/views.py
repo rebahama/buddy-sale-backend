@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics, filters
+from rest_framework import generics, filters, permissions
 from .models import Post
 from .serializer import PostSerializer
 from buddysale_drf.permissions import IsOwnerOrReadOnly
@@ -9,7 +9,7 @@ from buddysale_drf.permissions import IsOwnerOrReadOnly
 class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    serializer_class = [IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
     filter_backends = [filters.OrderingFilter, filters.SearchFilter,
