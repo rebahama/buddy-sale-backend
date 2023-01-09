@@ -1,2 +1,2 @@
 release: python manage.py makemigrations && python manage.py migrate
-web: gunicorn social_drf.wsgi
+web: gunicorn buddysale_drf.wsgi
