@@ -48,6 +48,9 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
+CORS_ALLOW_CREDENTIALS = True
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [(
         'rest_framework.authentication.SessionAuthentication'
@@ -76,7 +79,6 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'buddysale_drf.serializer.CurrentUserSerializer'
 }
 
-CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -118,6 +120,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'buddysale_drf.urls'
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
