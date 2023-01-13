@@ -36,12 +36,13 @@ class PostSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         uploaded_images = validated_data.pop("uploaded_images")
+        if len(uploaded_images) > 2:
+            self.errors['uploaded_images'] = ['You can upload only 4 images']
         post = Post.objects.create(**validated_data)
         for image in uploaded_images:
             new_image = MultipleImage.objects.create(post=post, image=image)
 
         return post
-
 
     class Meta:
         model = Post
