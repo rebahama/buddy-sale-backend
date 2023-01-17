@@ -19,6 +19,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images/',
                               default='../default_profile_irrizg_dcehz0',
                               blank=True)
+    phone_number = models.CharField(max_length=200, blank=False, default="0")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
