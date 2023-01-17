@@ -20,6 +20,7 @@ class Post(models.Model):
                               default='../default_profile_irrizg_dcehz0',
                               blank=True)
     phone_number = models.CharField(max_length=200, blank=False, default="0")
+    email = models.CharField(max_length=500, blank=False, default="")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
