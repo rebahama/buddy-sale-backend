@@ -28,6 +28,7 @@ class PostList(generics.ListCreateAPIView):
         'category',
         'city',
         'favorite',
+        'owner__post',
     ]
 
     def perform_create(self, serializer):
