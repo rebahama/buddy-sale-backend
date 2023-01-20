@@ -11,7 +11,6 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-
     filter_backends = [filters.OrderingFilter, filters.SearchFilter,
                        DjangoFilterBackend]
     ordering_fields = [
@@ -28,6 +27,7 @@ class PostList(generics.ListCreateAPIView):
         'category',
         'city',
         'favorite',
+        'owner__profile',
         'owner__post',
     ]
 
