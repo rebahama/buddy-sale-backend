@@ -14,7 +14,7 @@ class MultipleImageSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     images = MultipleImageSerializer(many=True, read_only=True)
     uploaded_images = serializers.ListField(child=serializers.ImageField(max_length=10000, allow_empty_file=True, use_url=False,),write_only=True)
-    owner = serializers.ReadOnlyField(source='owner.username')
+    owner_name = serializers.ReadOnlyField(source='owner.username')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     category_name = serializers.ReadOnlyField(source='category.title')
     city_name = serializers.ReadOnlyField(source='city.city')
