@@ -76,7 +76,7 @@ JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'buddysale_drf.serializer.CurrentUserSerializer'
+    'USER_DETAILS_SERIALIZER': 'buddysaless_drf.serializer.CurrentUserSerializer'
 }
 
 
